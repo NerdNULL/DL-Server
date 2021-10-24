@@ -12,11 +12,8 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
-    private Long id;
+    private Long userId;
 
     @OneToMany(mappedBy = "user")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
-
-
-
 }

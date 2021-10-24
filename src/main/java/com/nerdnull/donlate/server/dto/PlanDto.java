@@ -3,6 +3,7 @@ package com.nerdnull.donlate.server.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,5 +20,5 @@ public class PlanDto {
     private String detailLocation;
     private Date date;
     private Boolean done;
-    private List<PlanStateDto> planStateList;
+    private List<PlanStateDto> planStateList= new ArrayList<>();
 }
