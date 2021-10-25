@@ -14,6 +14,15 @@ public class UserEntity {
     @Column(name = "userId")
     private Long userId;
 
+    @Column(nullable = false)
+    private String nickName;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private Long point;
+
     @OneToMany(mappedBy = "user")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
 }
