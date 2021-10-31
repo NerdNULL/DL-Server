@@ -26,13 +26,9 @@ public class PlanService {
     }
 
     public PlanDto getDetails(Long planId) {
-        Optional<PlanEntity> maybePlan=  planRepository.findById(planId);
-        if(maybePlan.isEmpty()) {
-            log.error("Not exists plan");
-            throw new IllegalArgumentException("Not exists plan");
-        }
-        PlanDto plan = planMapper.toDto(maybePlan.get());
-        plan.setPlanStateList(planStateMapper.toDtoList(maybePlan.get().getPlanStateList()));
+        PlanEntity maybePlan = planRepository.findById(planId).orElseThrow(() -> new IllegalArgumentException("Not exists plan"));
+        PlanDto plan = planMapper.toDto(maybePlan);
+        plan.setPlanStateList(planStateMapper.toDtoList(maybePlan.getPlanStateList()));
         return plan;
     }
 }
